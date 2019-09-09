@@ -70,8 +70,6 @@ bool lucasLehmer(int exp){
 	start = clock();
 	bool lucasNum = findLucasLehmerNumber(exp, n);
 	if(lucasNum){	
-  		mpz_out_str(stdout,10,n);
-		printf(" is  prime\n");
 		printf("2^%d is Prime\n",exp);
 		printf("The length of this prime is ");
 		printf("%zu",size);
@@ -107,15 +105,12 @@ bool findLucasLehmerNumber(int exp, mpz_t mod){
         mpz_sub_ui(n,n,2);
         mpz_mod(n,n,mod);
     }       
-    printf("Found Lucas Number-->\n");
+    printf("Found Lucas Number-->");
     mpz_out_str(stdout,10,n);
     printf("\n\n");
-    if(mpz_cmp_ui(n,0) == 0){
+    if(mpz_cmp_ui(n,0) == 0)
     	return true;
-    }else{
-       	return false;
-    }
-    return 0;
+    return false;
 }
 /* *
  * Gets the exponent from the user and sends it to be proccessed
